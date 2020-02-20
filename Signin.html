@@ -343,84 +343,29 @@ html {
 	<!--Sign in page start-->
 <div class="main">
     <p class="sign" align="center">Sign In</p>
+
     <form class="form" action="Packages.html">
-      <input class="un " type="text" align="center" placeholder="Username" required>
-	        <input class="un " type="text" align="center" placeholder="Email id" required>
-      <input class="pass" type="password" align="center" placeholder="Password" required>
+
+      <input class="un " type="text" align="center" placeholder="Username" name="uname" required>
+        <input class="un " type="email" align="center" placeholder="Email id" name="email" required>
+      <input class="pass" type="password" align="center" placeholder="Password" name="pass"required>
 	  <br><br>
-      <input type="submit" class="submit" vaur="Submit" align="center">
+      <input type="submit" class="submit" vaule="Submit" align="center">
       <p class="forgot" align="center"><a href="#">Forgot Password?</a></p>            
+    
     </form>
+</div>
     <script>
-        //firebase ui
+    var ref = new Firebase('https://distrobouy-60295.firebaseio.com/');
 
-    var provider = new firebase.auth.GoogleAuthProvider();
-    var firebase = require('firebase');
-    var firebaseui = require('firebaseui');
-
-    // Initialize the FirebaseUI Widget using Firebase.
-    var ui = new firebaseui.auth.AuthUI(firebase.auth());
-
-    ui.start('#firebaseui-auth-container', {
-        signInOptions: [
-          firebase.auth.EmailAuthProvider.PROVIDER_ID
-        ],
-        // Other config options...
-    });
-
-    // To apply the default browser preference instead of explicitly setting it.
-    firebase.auth().useDeviceLanguage();
-
-    provider.setCustomParameters({
-        'login_hint': 'user@example.com'
-    });
-
-    firebase.auth().signInWithPopup(provider).then(function (result) {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        var token = result.credential.accessToken;
-        // The signed-in user info.
-        var user = result.user;
-        // ...
-    }).catch(function (error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // ...
-    });
-
-    firebase.auth().signInWithRedirect(provider);
-
-    firebase.auth().getRedirectResult().then(function (result) {
-        if (result.credential) {
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            var token = result.credential.accessToken;
-            // ...
-        }
-        // The signed-in user info.
-        var user = result.user;
-    }).catch(function (error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // ...
-    });
-
-    firebase.auth().signOut().then(function () {
-        // Sign-out successful.
-    }).catch(function (error) {
-        // An error happened.
+    var playersRef = ref.child("userDetails");
+    playersRef.push({
+        UserName: document.getElementsByName(uname),
+        Email: document.getElementsByName(email),
+        Password: document.getElementsByName(pass)
     });
     </script>
 
-</div>
     <!--Sign in page end-->
 <br><br>
     <!-- ##### Footer Area Start ##### -->
