@@ -1,0 +1,71 @@
+
+<!DOCTYPE html><html>
+<form>
+<table border="0"  align="center">
+	
+		
+	
+	<tr>
+		<td>Stores</td>
+		
+		<td><input type="checkbox" id="store" name="store" value="Spotify">
+		<label for="store">Spotify</label><br>
+		<input type="checkbox" id="store2" name="store2" value="saavn">
+		<label for="store1">saavn</label><br>
+		<input type="checkbox" id="store3" name="store3" value="Apple music">
+		<label for="store3"> Apple music</label><br>
+		</td>
+	</tr>
+		
+	<tr>
+		
+		<td>
+			<label for="song">select a song:</label>
+		</td>
+		<td>
+		<select id="song">
+ 		 <option value="volvo">1</option>
+  		<option value="saab">2</option>
+  		<option value="mercedes">3</option>
+ 	              <option value="audi">4</option>
+		<option value="audi">5</option>
+		<option value="audi">6</option>
+		</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Previously Released?</td>
+		<td><input type="radio" id="yes" name="releasemusic" value="yes">
+		<label for="yes">yes</label><br>
+		<input type="radio" id="no" name="releasemusic" value="no">
+		<label for="no">no</label><br></td>
+	</tr>
+	
+	<tr>
+	<td>
+  	<label for="bn">Band name</label>
+ 	 <input type="text" id="bandname" name=bn" value="band name"><br><br>
+	<td>
+	</tr>
+	
+	<button onclick="band()">Try it</button>
+
+	<p id="demo"></p>
+
+	<script type="text/javascript">
+	function band() {
+  	var x = document.getElementById("bandname").value;
+ 	 document.getElementById("demo").innerHTML = x;
+	}
+	</script>
+
+	
+	<tr>
+	<td> <button onclick="band()">submit</button>
+	</tr>
+  
+ </table>
+</form>
+</html>
+	
+	
